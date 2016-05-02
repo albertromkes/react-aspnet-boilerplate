@@ -8,6 +8,15 @@ export default class Html extends Component {
     component: PropTypes.node,
     store: PropTypes.object
   };
+  renderJsInclude() {
+    let src = '/pack/client.generated.js';
+    if (__ISDEVELOPMENT__) {
+      const devServer = require('../webpack/devServer');
+      src = 'http://' + devServer.host + ':' + devServer.port + '/client.generated.js';
+    }
+
+    return <script src={src} charSet="UTF-8" />;
+  }
 
   render() {
     const { component, store } = this.props;
@@ -41,7 +50,7 @@ export default class Html extends Component {
             }
             charSet="UTF-8"
           />
-          <script src="/pack/client.generated.js" charSet="UTF-8" />
+          {this.renderJsInclude()}
         </body>
       </html>
     );

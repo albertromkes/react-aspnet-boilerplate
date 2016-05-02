@@ -21,7 +21,8 @@ gulp.task('watch-client', ['build-client'], function(){
 })
 gulp.task('build-client-compiler', function() {
   if(!webpackConfig.clientCompiler)
-    webpackConfig.clientCompiler = webpack(webpackConfig.config.client);
+    // webpackConfig.clientCompiler = webpack(webpackConfig.config.client);
+    webpackConfig.clientCompiler = webpack(webpackConfig.config);
 });
 gulp.task('build-client', ['build-client-compiler'], function(cb) {
   webpackConfig.clientCompiler.run(function(err, stats) {

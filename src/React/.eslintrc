@@ -26,6 +26,7 @@
   },
   "globals": {
     "__CLIENT__": true,
-    "__SERVER__": true
+    "__SERVER__": true,
+    "__ISDEVELOPMENT__": true
   }
 }
